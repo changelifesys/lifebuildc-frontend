@@ -13,11 +13,11 @@
           <li>
             <i class="el-icon-check" v-if="info.IsC112" ></i>
             <i class="el-icon-close" v-else></i>
-            第一、二課簽到：<span :class="info.IsC112 ? 'color-check' : 'color-danger'">{{info.TxtC112}}</span>
+            第一、二課簽到：<span :class="info.IsC112 ? 'color-success' : 'color-danger'">{{info.TxtC112}}</span>
           </li>
           <li>
             <i class="el-icon-check" :class="{ not: !info.IsC134 }"></i>
-            第三、四課簽到：<span :class="info.IsC134 ? 'color-check' : 'color-danger'">{{info.TxtC134}}</span>
+            第三、四課簽到：<span :class="info.IsC134 ? 'color-success' : 'color-danger'">{{info.TxtC134}}</span>
           </li>
         </ul>
         <success-Text
@@ -30,37 +30,37 @@
           <li>
             <i class="el-icon-check" v-if="info.IsC212" ></i>
             <i class="el-icon-close" v-else></i>
-            第一、二課簽到：<span :class="info.IsC212 ? 'color-check' : 'color-danger'">{{info.TxtIsC212}}</span>
+            第一、二課簽到：<span :class="info.IsC212 ? 'color-success' : 'color-danger'">{{info.TxtIsC212}}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.IsC234" ></i>
             <i class="el-icon-close" v-else></i>
-            第三、四課簽到：<span :class="info.IsC234 ? 'color-check' : 'color-danger'">{{info.TxtIsC234}}</span>
+            第三、四課簽到：<span :class="info.IsC234 ? 'color-success' : 'color-danger'">{{info.TxtIsC234}}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.IsC25" ></i>
             <i class="el-icon-close" v-else></i>
-            第五課簽到：<span :class="info.IsC25 ? 'color-check' : 'color-danger'">{{info.TxtIsC25}}</span>
+            第五課簽到：<span :class="info.IsC25 ? 'color-success' : 'color-danger'">{{info.TxtIsC25}}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.Iswitness" ></i>
             <i class="el-icon-close" v-else></i>
-            見證繳交：<span :class="info.Iswitness ? 'color-check' : 'color-danger'">{{info.Txtwitness}}</span>
+            見證繳交：<span :class="info.Iswitness ? 'color-success' : 'color-danger'">{{info.Txtwitness}}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.IsC1_Score" ></i>
             <i class="el-icon-close" v-else></i>
-            C1考試： <span :class="info.IsC1_Score ? 'color-check' : 'color-danger'">{{ info.TxtC1_Score }}</span>
+            C1考試： <span :class="info.IsC1_Score ? 'color-success' : 'color-danger'">{{ info.TxtC1_Score }}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.IsC212_Score" ></i>
             <i class="el-icon-close" v-else></i>
-            第一、二課考試： <span :class="info.IsC212_Score ? 'color-check' : 'color-danger'">{{ info.TxtC212_Score }}</span>
+            第一、二課考試： <span :class="info.IsC212_Score ? 'color-success' : 'color-danger'">{{ info.TxtC212_Score }}</span>
           </li>
           <li>
             <i class="el-icon-check" v-if="info.IsC234_Score" ></i>
             <i class="el-icon-close" v-else></i>
-            第三、四課考試： <span :class="info.IsC234_Score ? 'color-check' : 'color-danger'">{{ info.TxtC234_Score }}</span>
+            第三、四課考試： <span :class="info.IsC234_Score ? 'color-success' : 'color-danger'">{{ info.TxtC234_Score }}</span>
           </li>
         </ul>
         <success-Text

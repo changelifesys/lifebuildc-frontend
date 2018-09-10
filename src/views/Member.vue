@@ -75,13 +75,13 @@ export default {
     width: 100%;
     height: auto;
   }
-  .el-icon-check, .color-check {
+  .el-icon-check {
     color: #67C23A;
   }
   .el-icon-check.not {
     opacity: 0;
   }
-  .color-danger, .el-icon-close {
+  .el-icon-close {
     color: #F56C6C;
   }
   .class-list {
