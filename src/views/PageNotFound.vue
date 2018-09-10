@@ -2,7 +2,7 @@
   <div class="error-wall load-error">
     <div class="error-container">
       <h1>oh no...</h1>
-      <h3>We have had an error</h3>
+      <h3>我們找不到頁面</h3>
       <h4>Error 404</h4>
       <p>Sorry...please check back (click refresh) in just a moment.</p>
       <!-- <p>If you are tyring to process an order, we reccomend you call<br> SendOutCards' Sustomer Support team at (801) 463-3800.<br> Or email at support@sendoutcards.com</p> -->
