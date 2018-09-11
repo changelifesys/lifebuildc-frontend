@@ -20,6 +20,12 @@ export default new Router({
       component: () => import('./views/Member.vue')
     },
     {
+      path: '/registration/:id',
+      name: 'registration',
+      props: true,
+      component: () => import('./views/Registration.vue')
+    },
+    {
       path: '*',
       name: 'pageNotFound',
       component: () => import('./views/PageNotFound.vue')

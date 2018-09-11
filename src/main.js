@@ -15,9 +15,11 @@ import lodash from 'lodash'
 import moment from 'moment'
 // Axios
 import axios from 'axios'
+import VueCookie from 'vue-cookie'
 
 Vue.use(Vuex)
 Vue.use(ElementUI, { locale })
+Vue.use(VueCookie)
 Vue.prototype.$moment = moment
 Vue.prototype.$lodash = lodash
 Vue.prototype.$http = axios
