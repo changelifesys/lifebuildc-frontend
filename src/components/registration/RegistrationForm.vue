@@ -1,47 +1,45 @@
 <template>
-  <el-main>
-    <el-col
-      :span="12"
-      :offset="6"
-      :xs="{ span: 19, offset: 3 }"
-    >
-      <div v-html="subInfo.HtmlSubDesc"></div>
+  <el-col
+    :span="12"
+    :offset="6"
+    :xs="{ span: 19, offset: 3 }"
+  >
+    <div v-html="subInfo.HtmlSubDesc"></div>
 
-      <el-form ref="form" :model="form" :rules="rules" :label-position="labelPosition" label-width="105px" @submit.prevent.native="checkEnter">
-        <el-form-item label="組別" prop="gcroup">
-          <el-select
-            v-model="form.gcroup"
-            @change="onGcroupChange"
-          >
-            <el-option v-for="group in groupData" :value="group.group" :key="group.group">{{ group.group }}</el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="小組" prop="group">
-          <el-select v-model="form.group" >
-            <el-option v-for="group in groupList"  :value="group" :key="group">{{ group }}</el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model.trim="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="手機" prop="phone">
-          <el-input v-model="form.phone" type="number"></el-input>
-        </el-form-item>
-        <el-form-item label="Email" prop="email">
-          <el-input v-model.trim="form.email" type="email"></el-input>
-        </el-form-item>
-        <el-form-item label="" prop="cacheInfo">
-          <el-checkbox-group v-model="form.cacheInfo">
-            <el-checkbox label="記住我的資訊" name="cacheInfo"></el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-        <el-form-item>
-          <el-button size="small" type="primary" @click="checkForm('form')" :loading="sending">報名</el-button>
-          <el-button size="small" @click="resetForm('form')" :disabled="sending">重置</el-button>
-        </el-form-item>
-      </el-form>
-    </el-col>
-  </el-main>
+    <el-form ref="form" :model="form" :rules="rules" :label-position="labelPosition" label-width="105px" @submit.prevent.native="checkEnter">
+      <el-form-item label="組別" prop="gcroup">
+        <el-select
+          v-model="form.gcroup"
+          @change="onGcroupChange"
+        >
+          <el-option v-for="group in groupData" :value="group.group" :key="group.group">{{ group.group }}</el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="小組" prop="group">
+        <el-select v-model="form.group" >
+          <el-option v-for="group in groupList"  :value="group" :key="group">{{ group }}</el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="姓名" prop="name">
+        <el-input v-model.trim="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label="手機" prop="phone">
+        <el-input v-model="form.phone" type="number"></el-input>
+      </el-form-item>
+      <el-form-item label="Email" prop="email">
+        <el-input v-model.trim="form.email" type="email"></el-input>
+      </el-form-item>
+      <el-form-item label="" prop="cacheInfo">
+        <el-checkbox-group v-model="form.cacheInfo">
+          <el-checkbox label="記住我的資訊" name="cacheInfo"></el-checkbox>
+        </el-checkbox-group>
+      </el-form-item>
+      <el-form-item>
+        <el-button size="small" type="primary" @click="checkForm('form')" :loading="sending">報名</el-button>
+        <el-button size="small" @click="resetForm('form')" :disabled="sending">重置</el-button>
+      </el-form-item>
+    </el-form>
+  </el-col>
 </template>
 
 <script>

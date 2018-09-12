@@ -1,37 +1,31 @@
 <template>
-  <div id="member">
-    <img id="mainBg" src="../assets/image/title.jpg" alt="生命建造-線上查詢">
-    <el-container>
-      <el-main>
-        <el-row :gutter="20">
-          <h2 class="alignCenter" style="color: #444;">生命建造-線上查詢</h2>
+  <container>
+    <page-header title="線上查詢"></page-header>
+    <main>
+      <app-form
+        v-if="show === 'form'"
+        :groupData="groupData"
+        @changePage="changePage($event)"
+      ></app-form>
 
-          <app-form
-            v-if="show === 'form'"
-            :groupData="groupData"
-            @changePage="changePage($event)"
-          ></app-form>
+      <info-board
+        v-if="show === 'info'"
+        :info="info"
+        @reQuery="reQuery()"
+        @changePage="changePage($event)"
+      ></info-board>
 
-          <info-board
-            v-if="show === 'info'"
-            :info="info"
-            @reQuery="reQuery()"
-            @changePage="changePage($event)"
-          ></info-board>
-
-          <quest-form
-            v-if="show === 'quest'"
-            @changePage="changePage($event)"
-            :info="info"
-          ></quest-form>
-
-        </el-row>
-      </el-main>
-    </el-container>
-  </div>
+      <quest-form
+        v-if="show === 'quest'"
+        @changePage="changePage($event)"
+        :info="info"
+      ></quest-form>
+    </main>
+  </container>
 </template>
 
 <script>
+import PageHeader from '../components/common/PageHeader'
 import AppForm from '../components/member/AppForm'
 import QuestForm from '../components/member/QuestForm'
 import InfoBoard from '../components/member/InfoBoard'
@@ -47,6 +41,7 @@ export default {
     }
   },
   components: {
+    pageHeader: PageHeader,
     appForm: AppForm,
     questForm: QuestForm,
     infoBoard: InfoBoard
@@ -70,19 +65,8 @@ export default {
 </script>
 
 <style>
-  #mainBg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .el-icon-check {
-    color: #67C23A;
-  }
   .el-icon-check.not {
     opacity: 0;
-  }
-  .el-icon-close {
-    color: #F56C6C;
   }
   .class-list {
     list-style: none;

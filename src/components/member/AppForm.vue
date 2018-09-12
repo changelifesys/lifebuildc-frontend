@@ -231,7 +231,4 @@ export default {
 .el-select {
   display: block;
 }
-.marginBottom0 {
-  margin-bottom: 0px;
-}
 </style>

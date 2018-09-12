@@ -1,12 +1,7 @@
 <template>
-  <div id="registration" v-loading.fullscreen.lock="pageLoading">
-    <section>
-      <header class="alignCenter">
-        <img src="../assets/image/title.jpg" id="main-img">
-        <h1>生命建造程序</h1>
-        <h3>{{ className }}</h3>
-      </header>
-
+  <container v-loading.fullscreen.lock="pageLoading">
+    <page-header :title="className"></page-header>
+    <main>
       <registration-form
         v-if="className && showBlock === 'form'"
         :subInfo="subInfo"
@@ -19,11 +14,12 @@
         :signData="signData"
         @reSignUp="reSignUp($event)"
       ></sign-info>
-    </section>
-  </div>
+    </main>
+  </container>
 </template>
 
 <script>
+import PageHeader from '../components/common/PageHeader'
 import RegistrationForm from '../components/registration/RegistrationForm'
 import SignInfo from '../components/registration/SignInfo'
 import {
@@ -53,6 +49,7 @@ export default {
     }
   },
   components: {
+    pageHeader: PageHeader,
     registrationForm: RegistrationForm,
     signInfo: SignInfo
   },
