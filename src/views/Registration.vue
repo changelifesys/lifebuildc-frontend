@@ -1,5 +1,5 @@
 <template>
-  <container v-loading.fullscreen.lock="pageLoading">
+  <div v-loading.fullscreen.lock="pageLoading">
     <page-header :title="className"></page-header>
     <main>
       <registration-form
@@ -15,7 +15,7 @@
         @reSignUp="reSignUp($event)"
       ></sign-info>
     </main>
-  </container>
+  </div>
 </template>
 
 <script>

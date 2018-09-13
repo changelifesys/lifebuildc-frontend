@@ -1,8 +1,25 @@
 <template>
   <div class="home">
-    <header class="alignCenter" height="auto">
+    <header height="auto">
+      <img src="../assets/image/logo.gif" alt="Change Life Church">
       <h1 class="deepshadow">life building</h1>
     </header>
+    <main>
+      <div class="wrapper">
+        <el-row :gutter="10" justify="center">
+          <el-col :span="12">
+            <router-link to="/member">
+              <el-button>教友查詢</el-button>
+            </router-link>
+          </el-col>
+          <el-col :span="12">
+            <router-link to="/registration/c1">
+              <el-button>課程報名</el-button>
+            </router-link>
+          </el-col>
+        </el-row>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -93,6 +110,14 @@ h1 {
       0 15px 0 #121212,
       0 22px 30px rgba(0, 0, 0, 0.9);
   }
+}
+
+.el-col {
+  text-align: center;
+}
+.wrapper {
+  max-width: 250px;
+  margin: 2em auto;
 }
 
 //for 手機裝置(螢幕尺寸 < 768px)

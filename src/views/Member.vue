@@ -1,5 +1,5 @@
 <template>
-  <container>
+  <div>
     <page-header title="線上查詢"></page-header>
     <main>
       <app-form
@@ -21,7 +21,7 @@
         :info="info"
       ></quest-form>
     </main>
-  </container>
+  </div>
 </template>
 
 <script>
