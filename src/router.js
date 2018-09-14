@@ -26,6 +26,12 @@ export default new Router({
       component: () => import('./views/Registration.vue')
     },
     {
+      path: '/fire',
+      name: 'fire',
+      props: true,
+      component: () => import('./views/Fire.vue')
+    },
+    {
       path: '*',
       name: 'pageNotFound',
       component: () => import('./views/PageNotFound.vue')

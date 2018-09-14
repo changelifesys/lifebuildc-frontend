@@ -39,6 +39,9 @@
         <el-button size="small" @click="resetForm('form')" :disabled="sending">重置</el-button>
       </el-form-item>
     </el-form>
+    <br>
+    <br>
+    <br>
   </el-col>
 </template>
 
