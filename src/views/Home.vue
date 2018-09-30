@@ -7,14 +7,19 @@
     <main>
       <div class="wrapper">
         <el-row :gutter="10" justify="center">
-          <el-col :span="12">
+          <el-col :span="8">
             <router-link to="/member">
               <el-button>教友查詢</el-button>
             </router-link>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="8">
             <router-link to="/registration/c1">
               <el-button>課程報名</el-button>
+            </router-link>
+          </el-col>
+          <el-col :span="8">
+            <router-link to="/signin/c1">
+              <el-button>線上報到</el-button>
             </router-link>
           </el-col>
         </el-row>
@@ -116,7 +121,7 @@ h1 {
   text-align: center;
 }
 .wrapper {
-  max-width: 250px;
+  max-width: 500px;
   margin: 2em auto;
 }
 

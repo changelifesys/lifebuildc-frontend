@@ -13,3 +13,5 @@ export const chkMemberApi = `${apiUrl}ChkMember.aspx`
 
 export const chkFirePassApi = `${apiUrl}chkFirePass.aspx`
 export const addFireSubSignApi = `${apiUrl}AddFireSubSign.aspx`
+
+export const updSubSignApi = `${apiUrl}UpdSubSign.aspx`
