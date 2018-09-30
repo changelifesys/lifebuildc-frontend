@@ -26,6 +26,12 @@ export default new Router({
       component: () => import('./views/Registration.vue')
     },
     {
+      path: '/signin/:id',
+      name: 'signin',
+      props: true,
+      component: () => import('./views/Signin.vue')
+    },
+    {
       path: '/fire',
       name: 'fire',
       props: true,
