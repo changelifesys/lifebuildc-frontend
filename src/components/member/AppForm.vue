@@ -170,7 +170,7 @@ export default {
           if (response.data.IsApiError) {
             this.$alert(response.data.ApiMsg, '發生錯誤', {
               confirmButtonText: '確定',
-              type: 'warning',
+              type: 'error',
               center: true,
               showClose: false
             })
@@ -193,7 +193,7 @@ export default {
           if (response.data.IsApiError) {
             this.$alert(response.data.ApiMsg, '發生錯誤', {
               confirmButtonText: '確定',
-              type: 'warning',
+              type: 'error',
               center: true,
               showClose: false
             })
