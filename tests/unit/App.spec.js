@@ -11,11 +11,8 @@ localVue.use(VueRouter)
 localVue.use(ElementUI, { locale })
 
 describe('App', () => {
-  it('renders a child component via routing', () => {
+  it('renders component is a  vue instance', () => {
     const wrapper = mount(App, { localVue, router })
-    router.push('/member')
-
-    // expect(wrapper.find(Member).exists()).toBe(true)
     expect(wrapper.isVueInstance()).toBe(true)
   })
 })
