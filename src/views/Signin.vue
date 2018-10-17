@@ -84,7 +84,7 @@ export default {
       this.$http
         .post(getSubInfoApi, {
           CategoryID: id.toUpperCase(),
-          PageName: 'SubjectSignUp'
+          PageName: 'SubjectCheck'
         })
         .then((response) => {
           const {
