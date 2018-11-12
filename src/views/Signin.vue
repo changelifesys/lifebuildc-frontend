@@ -64,8 +64,12 @@ export default {
         type: 'error',
         showClose: false,
         showConfirmButton: false,
-        center: true
-      })
+        center: true,
+        closeOnClickModal: true
+      }).then(() => {})
+        .catch(() => {
+          this.$router.back()
+        })
     },
     onSignSuccess (data) {
       this.signData = data

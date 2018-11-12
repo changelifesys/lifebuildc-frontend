@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import {
   getMemSubDataApi,
   getGroupByEnameApi,
@@ -102,6 +103,7 @@ export default {
       groups: []
     }
   },
+  computed: mapGetters(['userInfo']),
   methods: {
     checkEnter () {},
     onSelectChange (group) {
@@ -218,6 +220,7 @@ export default {
     }
   },
   mounted () {
+    this.form.name = this.userInfo ? this.userInfo.name : ''
     window.addEventListener('resize', this.onResize)
     this.onResize()
   },

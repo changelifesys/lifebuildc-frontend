@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import router from '../../router.js'
 import { addSubSignApi, chkMemberApi } from '../../api'
 
 export default {
@@ -108,6 +110,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['addUser']),
     checkForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -205,7 +208,13 @@ export default {
             cancelButtonText: '了解',
             beforeClose: (action, instance, done) => {
               if (action === 'confirm' && GoLink !== '') {
-                window.location.href = GoLink
+                const user = {
+                  name: this.form.name
+                }
+                this.addUser(user)
+                router.push('/member')
+                done()
+                // window.location.href = GoLink
               } else {
                 done()
               }
