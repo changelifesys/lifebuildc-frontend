@@ -4,8 +4,8 @@
     :offset="6"
     :xs="{ span: 18, offset: 3 }"
   >
-    <p class="center">{{ info.group }}</p>
-    <p class="center">{{ info.Ename }}</p>
+    <p class="alignCenter">{{ info.group }}</p>
+    <p class="alignCenter">{{ info.Ename }}</p>
 
     <el-collapse v-model="activeNames" @change="handleChange">
       <el-collapse-item
@@ -26,8 +26,7 @@
 
         <success-Text
           :alertType="info[c.isPass.statusCode] ? 'success' : 'error'"
-          v-if="info[c.isPass.statusCode]"
-        >{{info.TxtC1_Status}}</success-Text>
+        >{{info[c.isPass.textCode]}}</success-Text>
       </el-collapse-item>
     </el-collapse>
 
@@ -65,7 +64,7 @@ export default {
             { title: '經歷神營會', statusCode: 'IsExpGod', textCode: 'TxtIsExpGod' },
             { title: '更深經歷神', statusCode: 'IsC1God', textCode: 'TxtC1God' }
           ],
-          isPass: { title: 'C1', statusCode: 'isC1_Status', textCode: 'TxtC1_Status' }
+          isPass: { title: 'C1', statusCode: 'IsC1_Status', textCode: 'TxtC1_Status' }
         },
         C2: {
           list: [
@@ -80,14 +79,14 @@ export default {
             { title: 'QT研習營', statusCode: 'IsC2QT', textCode: 'TxtIsC2QT' },
             { title: '榮耀男人or幸福女人', statusCode: 'IsC2MW', textCode: 'TxtIsC2MW' }
           ],
-          isPass: { title: 'C2', statusCode: 'isC2_Status', textCode: 'TxtC2_Status' }
+          isPass: { title: 'C2', statusCode: 'IsC2_Status', textCode: 'TxtC2_Status' }
         },
         C3: {
           list: [
             { title: '九型人格', statusCode: 'IsC3N', textCode: 'TxtIsC3N' },
             { title: '人際關係', statusCode: 'IsC3P', textCode: 'TxtIsC3P' }
           ],
-          isPass: { title: 'C3', statusCode: 'isC3_Status', textCode: 'TxtC3_Status' }
+          isPass: { title: 'C3', statusCode: 'IsC3_Status', textCode: 'TxtIsC3_Status' }
         }
       }
     }
