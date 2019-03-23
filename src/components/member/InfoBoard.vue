@@ -10,7 +10,7 @@
     <el-collapse v-model="activeNames" @change="handleChange">
       <el-collapse-item
         v-for="(c, cKey, cIndex) in classes"
-        :title="cKey"
+        :title="`${cKey} - ${c.title}`"
         :key="cKey"
         :name="String(cIndex + 1)"
       >
@@ -58,6 +58,7 @@ export default {
       activeNames: ['1', '2', '3'],
       classes: {
         C1: {
+          title: '委身於教會',
           list: [
             { title: '第一、二課簽到', statusCode: 'IsC112', textCode: 'TxtC112' },
             { title: '第三、四課簽到', statusCode: 'IsC134', textCode: 'TxtC134' },
@@ -67,6 +68,7 @@ export default {
           isPass: { title: 'C1', statusCode: 'IsC1_Status', textCode: 'TxtC1_Status' }
         },
         C2: {
+          title: '委身於成熟',
           list: [
             { title: '第一、二課簽到', statusCode: 'IsC212', textCode: 'TxtIsC212' },
             { title: '第三、四課簽到', statusCode: 'IsC234', textCode: 'TxtIsC234' },
@@ -82,6 +84,7 @@ export default {
           isPass: { title: 'C2', statusCode: 'IsC2_Status', textCode: 'TxtC2_Status' }
         },
         C3: {
+          title: '委身於服事',
           list: [
             { title: '九型人格', statusCode: 'IsC3N', textCode: 'TxtIsC3N' },
             { title: '人際關係', statusCode: 'IsC3P', textCode: 'TxtIsC3P' }
