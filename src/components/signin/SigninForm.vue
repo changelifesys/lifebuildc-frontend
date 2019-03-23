@@ -180,7 +180,6 @@ export default {
         const { IsApiError, ApiMsg, GoLink } = response.data
 
         if (IsApiError) {
-          // this.$message({ message: ApiMsg, type: 'error' });
           const h = this.$createElement
           this.$msgbox({
             title: '',

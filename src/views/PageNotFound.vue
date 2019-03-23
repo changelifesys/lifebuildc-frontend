@@ -4,7 +4,8 @@
       <h1>oh no...</h1>
       <h3>我們找不到頁面</h3>
       <h4>Error 404</h4>
-      <p>Sorry...please check back (click refresh) in just a moment.</p>
+      <p>Sorry...please check back in just a moment.</p>
+      <a href="/">回首頁</a>
       <!-- <p>If you are tyring to process an order, we reccomend you call<br> SendOutCards' Sustomer Support team at (801) 463-3800.<br> Or email at support@sendoutcards.com</p> -->
     </div>
   </div>

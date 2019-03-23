@@ -66,7 +66,8 @@ export default {
         showConfirmButton: false,
         center: true,
         closeOnClickModal: true
-      }).then(() => {})
+      })
+        .then(() => {})
         .catch(() => {
           this.$router.back()
         })

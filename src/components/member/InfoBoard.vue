@@ -8,68 +8,31 @@
     <p class="center">{{ info.Ename }}</p>
 
     <el-collapse v-model="activeNames" @change="handleChange">
-      <el-collapse-item title="C1" name="1">
+      <el-collapse-item
+        v-for="(c, cKey, cIndex) in classes"
+        :title="cKey"
+        :key="cKey"
+        :name="String(cIndex + 1)"
+      >
         <ul class="class-list">
-          <li>
-            <i class="el-icon-check" v-if="info.IsC112" ></i>
+          <li v-for="lesson in c.list" :key="lesson.statusCode">
+            <i class="el-icon-check" v-if="info[lesson.statusCode]" ></i>
             <i class="el-icon-close" v-else></i>
-            第一、二課簽到：<span :class="info.IsC112 ? 'color-success' : 'color-danger'">{{info.TxtC112}}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" :class="{ not: !info.IsC134 }"></i>
-            第三、四課簽到：<span :class="info.IsC134 ? 'color-success' : 'color-danger'">{{info.TxtC134}}</span>
+            {{lesson.title}}：<span :class="info[lesson.statusCode] ? 'color-success' : 'color-danger'">
+              {{info[lesson.textCode]}}
+            </span>
           </li>
         </ul>
+
         <success-Text
-          :alertType="alertTypeC1"
-          v-if="info.TxtC1_Status"
+          :alertType="info[c.isPass.statusCode] ? 'success' : 'error'"
+          v-if="info[c.isPass.statusCode]"
         >{{info.TxtC1_Status}}</success-Text>
       </el-collapse-item>
-      <el-collapse-item title="C2" name="2">
-        <ul class="class-list">
-          <li>
-            <i class="el-icon-check" v-if="info.IsC212" ></i>
-            <i class="el-icon-close" v-else></i>
-            第一、二課簽到：<span :class="info.IsC212 ? 'color-success' : 'color-danger'">{{info.TxtIsC212}}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.IsC234" ></i>
-            <i class="el-icon-close" v-else></i>
-            第三、四課簽到：<span :class="info.IsC234 ? 'color-success' : 'color-danger'">{{info.TxtIsC234}}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.IsC25" ></i>
-            <i class="el-icon-close" v-else></i>
-            第五課簽到：<span :class="info.IsC25 ? 'color-success' : 'color-danger'">{{info.TxtIsC25}}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.Iswitness" ></i>
-            <i class="el-icon-close" v-else></i>
-            見證繳交：<span :class="info.Iswitness ? 'color-success' : 'color-danger'">{{info.Txtwitness}}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.IsC1_Score" ></i>
-            <i class="el-icon-close" v-else></i>
-            C1考試： <span :class="info.IsC1_Score ? 'color-success' : 'color-danger'">{{ info.TxtC1_Score }}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.IsC212_Score" ></i>
-            <i class="el-icon-close" v-else></i>
-            第一、二課考試： <span :class="info.IsC212_Score ? 'color-success' : 'color-danger'">{{ info.TxtC212_Score }}</span>
-          </li>
-          <li>
-            <i class="el-icon-check" v-if="info.IsC234_Score" ></i>
-            <i class="el-icon-close" v-else></i>
-            第三、四課考試： <span :class="info.IsC234_Score ? 'color-success' : 'color-danger'">{{ info.TxtC234_Score }}</span>
-          </li>
-        </ul>
-        <success-Text
-          :alertType="alertTypeC2"
-          v-if="info.TxtC2_Status"
-        >{{info.TxtC2_Status}}</success-Text>
-      </el-collapse-item>
     </el-collapse>
+
     <br>
+
     <el-button
       size="small"
       icon="el-icon-question"
@@ -80,6 +43,7 @@
       icon="el-icon-refresh"
       @click="$emit('reQuery')"
     ></el-button>
+
     <br>
     <br>
     <br>
@@ -92,7 +56,40 @@ import SuccessText from './SuccessText'
 export default {
   data () {
     return {
-      activeNames: ['1', '2']
+      activeNames: ['1', '2', '3'],
+      classes: {
+        C1: {
+          list: [
+            { title: '第一、二課簽到', statusCode: 'IsC112', textCode: 'TxtC112' },
+            { title: '第三、四課簽到', statusCode: 'IsC134', textCode: 'TxtC134' },
+            { title: '經歷神營會', statusCode: 'IsExpGod', textCode: 'TxtIsExpGod' },
+            { title: '更深經歷神', statusCode: 'IsC1God', textCode: 'TxtC1God' }
+          ],
+          isPass: { title: 'C1', statusCode: 'isC1_Status', textCode: 'TxtC1_Status' }
+        },
+        C2: {
+          list: [
+            { title: '第一、二課簽到', statusCode: 'IsC212', textCode: 'TxtIsC212' },
+            { title: '第三、四課簽到', statusCode: 'IsC234', textCode: 'TxtIsC234' },
+            { title: '第五課簽到', statusCode: 'IsC25', textCode: 'TxtIsC25' },
+            { title: '見證繳交', statusCode: 'Iswitness', textCode: 'Txtwitness' },
+            { title: 'C1考試', statusCode: 'IsC1_Score', textCode: 'TxtC1_Score' },
+            { title: '第一、二課考試', statusCode: 'IsC212_Score', textCode: 'TxtC212_Score' },
+            { title: '第三、四課考試', statusCode: 'IsC234_Score', textCode: 'TxtC234_Score' },
+            { title: '領袖訓練一', statusCode: 'IsC2L1', textCode: 'TxtC2L1' },
+            { title: 'QT研習營', statusCode: 'IsC2QT', textCode: 'TxtIsC2QT' },
+            { title: '榮耀男人or幸福女人', statusCode: 'IsC2MW', textCode: 'TxtIsC2MW' }
+          ],
+          isPass: { title: 'C2', statusCode: 'isC2_Status', textCode: 'TxtC2_Status' }
+        },
+        C3: {
+          list: [
+            { title: '九型人格', statusCode: 'IsC3N', textCode: 'TxtIsC3N' },
+            { title: '人際關係', statusCode: 'IsC3P', textCode: 'TxtIsC3P' }
+          ],
+          isPass: { title: 'C3', statusCode: 'isC3_Status', textCode: 'TxtC3_Status' }
+        }
+      }
     }
   },
   components: {
@@ -102,14 +99,6 @@ export default {
     info: {
       type: Object,
       required: true
-    }
-  },
-  computed: {
-    alertTypeC1: function () {
-      return this.info.IsC1_Status ? 'success' : 'error'
-    },
-    alertTypeC2: function () {
-      return this.info.IsC2_Status ? 'success' : 'error'
     }
   },
   methods: {

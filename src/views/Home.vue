@@ -7,19 +7,14 @@
     <main>
       <div class="wrapper">
         <el-row :gutter="10" justify="center">
-          <el-col :span="8">
-            <router-link to="/member">
-              <el-button>教友查詢</el-button>
-            </router-link>
-          </el-col>
-          <el-col :span="8">
-            <router-link to="/registration/c1">
-              <el-button>課程報名</el-button>
-            </router-link>
-          </el-col>
-          <el-col :span="8">
-            <router-link to="/signin/c1">
-              <el-button>線上報到</el-button>
+          <el-col
+            v-for="e in entries"
+            :key="e.name"
+            :span="8"
+            :xs="24"
+          >
+            <router-link :to="e.route">
+              <el-card shadow="hover">{{e.name}}</el-card>
             </router-link>
           </el-col>
         </el-row>
@@ -29,22 +24,21 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home'
+  name: 'home',
+  data () {
+    return {
+      entries: [
+        { name: '教友查詢', route: '/member' },
+        { name: '課程報名', route: '/registration/c1' },
+        { name: '線上報到', route: '/signin/c1' }
+      ]
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-// 圓體
-// @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
-// font-family: 'cwTeXYen', sans-serif;
-// 黑體
-// @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-// font-family: 'Noto Sans TC', sans-serif;
-
 h1 {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   // font-size: 92px;
@@ -121,8 +115,15 @@ h1 {
   text-align: center;
 }
 .wrapper {
-  max-width: 500px;
+  max-width: 800px;
   margin: 2em auto;
+  padding: 1rem;
+
+  .el-col {
+    margin-bottom: 1rem;
+  }
+
+  a { text-decoration: none; }
 }
 
 //for 手機裝置(螢幕尺寸 < 768px)
